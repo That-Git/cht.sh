@@ -12,7 +12,7 @@ fn prompt(prompt:&str) -> String {
 fn main() /* -> &'static str */ {
     let topic: String = prompt("topic: ");
     let query: String = prompt("query: ");
-    // println!("{}", (format!("https://cht.sh/{}/{}", topic.to_string(), query.to_string())).as_str());
+    // println!("{}", (format!("https://cht.sh/{}~{}", topic.to_string(), query.to_string())).as_str());
     let output = Command::new("curl").arg((format!("https://cht.sh/{}/{}", topic.to_string(), query.to_string())).as_str())
         // Tell the OS to record the command's output
         .stdout(Stdio::piped())
