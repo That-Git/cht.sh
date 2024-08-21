@@ -2,7 +2,6 @@ use {
     http_body_util::{BodyExt, Empty},
     hyper::{
         body::{Buf, Bytes},
-        header::CONTENT_TYPE,
         http::HeaderMap,
         Request,
     },
@@ -30,7 +29,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
     let topic: String = prompt("topic: ");
     let query: String = prompt("query: ");
     // Parse our URL...
-    let url = (format!("https://cht.sh/{}~{}", topic.to_string(), query.to_string()))
+    let url = (format!("https://cht.sh/{}~{}", topic, query))
         .as_str()
         .parse::<hyper::Uri>()?;
 
